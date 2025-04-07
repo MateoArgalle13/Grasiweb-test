@@ -1,0 +1,66 @@
+<footer class="footer" role="contentinfo" aria-label="Footer">
+    <div class="footer__container">
+      
+      <!-- Columna izquierda -->
+      <div class="footer__left">
+        <div class="footer__left_content">
+          <img src="{{ settings.footer.logo }}" alt="{{ settings.footer.logo_alt }}" class="footer__logo" />
+          <p class="text-center text-purple">|</p>
+          <p class="font-secondary text-[34px] font-bold">{{ settings.footer.titleFooter }}</p>
+        </div>
+        <p class="footer__description" aria-label="Descripción de la tienda">
+          {{ settings.footer.description }}
+        </p>
+      </div>
+  
+      <!-- Columna central -->
+      <nav class="footer__center" aria-label="Navegación principal del pie de página">
+        <ul class="footer__main-links">
+          {% for link in settings.footer.main_links %}
+            <li><a href="{{ link.href }}" title="Ir a {{ link.text }}" accesskey="U">{{ link.text | upcase }}</a></li>
+          {% endfor %}
+        </ul>
+        <ul class="footer__secondary-links">
+          {% for link in settings.footer.secondary_links %}
+            <li><a href="{{ link.href }}" title="Ir a {{ link.text }}" accesskey="U">{{ link.text | upcase }}</a></li>
+          {% endfor %}
+        </ul>
+        <div class="items-center">
+            <span class="header__payment-text">We accept all major cards, PayPal & crypto</span>
+            <ul class="header__payment-icons">
+              {% for icon in settings.header.payment_icons %}
+                <li><img src="{{ icon.src }}" alt="{{ icon.alt }}"></li>
+              {% endfor %}
+            </ul>
+          </div> 
+      </nav>
+  
+      <!-- Columna derecha -->
+      <div class="footer__right">
+        <div class="pl-2">
+            <p class="text-12">Subscribe and receive drop notifications</p>
+            <div class="pl-2 pr-2">
+                <form class="footer__newsletter" role="form" aria-label="Formulario de suscripción al boletín">
+                    <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
+                    <input type="email" id="newsletter-email" name="email" placeholder="Enter Email" aria-required="true" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#762CFB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right "><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    </form>
+            </div>
+            
+        </div>
+        
+        <nav class="footer__social" aria-label="Redes sociales">
+          <ul>
+            {% for social in settings.footer.social_links %}
+              <li>
+                <a href="{{ social.href }}" title="{{ social.title }}" target="_blank" rel="noopener noreferrer">
+                  {{ social.name }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+  

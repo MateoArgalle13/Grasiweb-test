@@ -1,9 +1,10 @@
 @use './components/header/header.scss';
+@use './components/footer/footer.scss';
 
 
 
 body {
-  font-family: Arial;
+  font-family: "Roboto", sans-serif;
   --tw-bg-opacity: 1;
   background-color: rgb(23 23 23 / var(--tw-bg-opacity));
   margin: 0;

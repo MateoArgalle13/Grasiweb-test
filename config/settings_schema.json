@@ -13,5 +13,26 @@
         "label": "Background Color"
       }
     ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "image",
+        "id": "logo",
+        "label": "Site Logo"
+      },
+      {
+        "type": "text",
+        "id": "payment_text",
+        "label": "Crypto Payment Text",
+        "default": "We Accept"
+      },
+      {
+        "type": "image_list",
+        "id": "payment_icons",
+        "label": "Crypto Icons"
+      }
+    ]
   }
 ]

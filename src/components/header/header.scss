@@ -1,0 +1,108 @@
+.header {
+    position: relative;
+    width: 100%;
+    z-index: 100;
+    background-color: #111; // Fondo base
+    transition: background-color 0.3s ease;
+  
+    &--sticky {
+      position: sticky;
+      top: 0;
+      background-color: rgba(17, 17, 17, 0.85);
+      backdrop-filter: blur(16px);
+      background-color: rgba(35, 33, 40, .3);
+    }
+  
+    &__container {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+  
+      @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  
+    &__left,
+    &__center,
+    &__right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    &__center{
+      .module-border-wrap.rounded-full{
+        position: relative;
+        background: linear-gradient(90deg, rgba(118, 44, 251, 0.6), rgba(163, 148, 239, 0.6), rgba(133, 111, 252, 0.6));
+        border-radius: 9999px;
+        padding: 1px;
+        .items-center{
+          padding: .5rem 1rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: rgb(21 21 21 / 1);
+          border-radius: 99999px;
+        }
+      }
+    }
+    &__logo {
+      height: 40px;
+      width: auto;
+    }
+  
+    &__payment-text {
+      font-size: 14px;
+      color: #fff;
+      margin-right: 0.5rem;
+    }
+  
+    &__payment-icons {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  
+      li img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  
+    &__link {
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+      margin-right: 1rem;
+  
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  
+    &__cart {
+      background-color: #a855f7;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem;
+      cursor: pointer;
+  
+      img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
+      }
+  
+      &:hover {
+        background-color: #9333ea;
+      }
+    }
+  }
+  .module-border-wrap.rounded-full{
+    
+  }

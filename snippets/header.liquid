@@ -1,0 +1,30 @@
+<header class="header">
+  <div class="header__container">
+    <div class="header__left">
+      {% comment %} <img class="header__logo" src="{{ settings.header.logo | img_url: 'master' }}" alt="Logo Shuffle Store" /> {% endcomment %}
+      <a href="{{ settings.header.linkLogo }}" accesskey="U" title="{{ settings.header.titleLink_logo }}">
+        {% render 'logo-inline' %}
+      </a>
+    </div>
+    <div class="header__center">
+      <div class="module-border-wrap rounded-full">
+        <div class="items-center">
+          <span class="header__payment-text">{{ settings.header.payment_text }}</span>
+          <ul class="header__payment-icons">
+            {% for icon in settings.header.payment_icons %}
+              <li><img src="{{ icon.src }}" alt="{{ icon.alt }}"></li>
+            {% endfor %}
+          </ul>
+        </div>        
+      </div>
+    </div>
+
+    <div class="header__right">
+      <a href="#featured-products" title="Ir a ver todos los productos" accesskey="U" class="header__link">All Products</a>
+      <a href="#collections" title="Ir a ver las collections" class="header__link">Collections</a>
+      <button class="header__cart" aria-label="Cart">
+        <img src="/assets/cart-icon.svg" alt="Cart Icon">
+      </button>
+    </div>
+  </div>
+</header>

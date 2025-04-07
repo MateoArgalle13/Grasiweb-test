@@ -1,6 +1,19 @@
+@use './components/header/header.scss';
+
+
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: rgb(24, 230, 68);
+  font-family: Arial;
+  --tw-bg-opacity: 1;
+  background-color: rgb(23 23 23 / var(--tw-bg-opacity));
   margin: 0;
   padding: 0;
+}
+.featured-products{
+  
+  padding-left: 40px;
+  padding-right: 40px;
+  .product-list{
+    background: white;
+  }
 }

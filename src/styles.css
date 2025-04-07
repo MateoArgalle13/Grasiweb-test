@@ -1,7 +1,8 @@
 @use './components/header/header.scss';
 @use './components/footer/footer.scss';
 @use './components/top-bar/topbar';
-
+@use './components/hero-banner/heroBanner';
+@use './components/shuffle-essentials/shuffle-essentials';
 
 body {
   font-family: "Roboto", sans-serif;
@@ -9,6 +10,9 @@ body {
   background-color: rgb(23 23 23 / var(--tw-bg-opacity));
   margin: 0;
   padding: 0;
+}
+.main {
+  max-width: 1440px;
 }
 .featured-products{
   

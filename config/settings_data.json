@@ -7,14 +7,11 @@
         "background_color": "#ffffff"
       }
     },
-    "hero-banner": {
-      "type": "hero-banner",
-      "settings": {
-        "button_text": "Shop Now",
-        "button_link": "/collections/all",
-        "marquee_text": "Free Shipping on Orders Over $50",
-        "background_image": "hero_banner_img.avif"
-      }
+    "hero_banner": {
+      "alt": "Shuffle Clothing Collection Banner",
+      "button_text": "VIEW THE COLLECTION",
+      "button_link": "/collections",
+      "image": "/assets/hero_banner_img.avif"
     },
     "footer": {
       "type": "footer ",
@@ -52,6 +49,10 @@
         { "src": "/assets/doge.svg", "alt": "Dogecoin" },
         { "src": "/assets/usdc.svg", "alt": "USD Coin" }
       ]
+    },
+    "shuffle_essentials": {
+      "text": "SHUFFLE ESSENTIALS",
+      "icon": "/assets/star-purple.svg"
     }
   }
 }

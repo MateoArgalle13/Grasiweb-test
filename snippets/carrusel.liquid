@@ -1,0 +1,19 @@
+<section class="product-carousel">
+    <div class="products-wrapper">
+      {% assign products = collections.all.products | slice: 0, 10 %}
+      {% for product in products %}
+        <div class="product-card {% if forloop.index > 4 %}hidden extra-product{% endif %}">
+          <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+          <h3>{{ product.title }}</h3>
+          <p>{{ product.price | money }}</p>
+          <ul class="product-tags">
+            {% for tag in product.tags %}
+              <li>{{ tag }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endfor %}
+    </div>
+    <button id="viewAllBtn">VIEW ALL</button>
+  </section>
+  

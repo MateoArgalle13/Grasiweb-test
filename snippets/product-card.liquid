@@ -1,11 +1,16 @@
-<div class="product-card">
-  <h3>{{ product.title }}</h3>
-  <p>Price: ${{ product.price }}</p>
-  {% if product.tags %}
-    <ul>
-      {% for tag in product.tags %}
-        <li>{{ tag }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+<div class="bg-black rounded-lg overflow-hidden shadow-lg product-card static-product">
+  <div class="item-card">
+    <div class="img-card">
+      <img src="{{ product.featured_image }}" alt="{{ product.title }}" class="w-full object-cover rounded-lg" />}
+    </div>    
+  </div>
+  <div class="p-4 text-center">
+    <div class="d-grid">
+      <p class="text-white text-sm font-semibold mb-2">{{ product.title }}</p>
+      <p class="text-white text-sm mb-2">$ {{ product.price }} USD</p>      
+    </div>    
+    <button class="bg-purple-600 rounded-full p-2 mt-2 hover:bg-purple-700 transition">
+      <img src="/assets/cart-icon.svg" alt="Cart Icon">
+    </button>
+  </div>
 </div>

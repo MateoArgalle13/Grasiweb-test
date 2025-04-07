@@ -3,6 +3,8 @@
 @use './components/top-bar/topbar';
 @use './components/hero-banner/heroBanner';
 @use './components/shuffle-essentials/shuffle-essentials';
+@use './components/carrusel/carrusel';
+
 
 body {
   font-family: "Roboto", sans-serif;

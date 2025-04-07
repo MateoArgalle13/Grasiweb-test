@@ -17,8 +17,9 @@
       }
     },
     "footer": {
-      "type": "footer",
-      "logo": "/assets/logo.svg",
+      "type": "footer ",
+      "logo": "/assets/footer.svg",
+      "titleFooter": "STORE",
       "description": "© 2024, Shuffle.store Operated by Studio Plaid. Need help? Email support@shuffle.store",
       "main_links": [
         { "text": "HOME", "href": "/" },
@@ -33,9 +34,9 @@
       ],
       "newsletter_placeholder": "Enter Email",
       "social_links": [
-        { "platform": "FACEBOOK", "href": "https://facebook.com" },
-        { "platform": "X(TWITTER)", "href": "https://twitter.com" },
-        { "platform": "INSTAGRAM", "href": "https://instagram.com" }
+        { "platform": "FACEBOOK", "href": "https://facebook.com", "name": "FACEBOOK" },
+        { "platform": "X(TWITTER)", "href": "https://twitter.com", "name": "X(TWITTER)" },
+        { "platform": "INSTAGRAM", "href": "https://instagram.com", "name": "INSTAGRAM" }
       ]
     },
     "header":{

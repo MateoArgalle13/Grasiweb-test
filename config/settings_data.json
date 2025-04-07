@@ -53,6 +53,75 @@
     "shuffle_essentials": {
       "text": "SHUFFLE ESSENTIALS",
       "icon": "/assets/star-purple.svg"
+    },
+    "product_carousel": {
+      "type": "product-carousel",
+      "title": "OUR BEST SELLERS",
+      "products": [
+        {
+          "title": "Waifu Body Pillow",
+          "url": "/products/product-1",
+          "featured_image": "/assets/waifu_body_pillow.avif",
+          "price": 888.88,
+          "tags": ["Best Seller", "New"]
+        },
+        {
+          "title": "Shuffle Hoodie - Purple",
+          "url": "/products/product-2",
+          "featured_image": "/assets/shuffle_hoodie_purple.avif",
+          "price": 80.000,
+          "tags": ["Limited"]
+        },
+        {
+          "title": "Gorras negras",
+          "url": "/products/product-1",
+          "featured_image": "/assets/shuffle_hat_black.avif",
+          "price": 20.00,
+          "tags": ["Best Seller", "New"]
+        },
+        {
+          "title": "Waifu Body Pillow",
+          "url": "/products/product-1",
+          "featured_image": "/assets/waifu_body_pillow.avif",
+          "price": 888.88,
+          "tags": ["Best Seller", "New"]
+        },
+        {
+          "title": "Waifu Body Pillow",
+          "url": "/products/product-1",
+          "featured_image": "/assets/waifu_body_pillow.avif",
+          "price": 888.88,
+          "tags": ["Best Seller", "New"]
+        },
+        {
+          "title": "Waifu Body Pillow",
+          "url": "/products/product-1",
+          "featured_image": "/assets/waifu_body_pillow.avif",
+          "price": 888.88,
+          "tags": ["Best Seller", "New"]
+        },
+        {
+          "title": "Waifu Body Pillow",
+          "url": "/products/product-1",
+          "featured_image": "/assets/waifu_body_pillow.avif",
+          "price": 888.88,
+          "tags": ["Best Seller", "New"]
+        },
+        {
+          "title": "Waifu Body Pillow",
+          "url": "/products/product-1",
+          "featured_image": "/assets/waifu_body_pillow.avif",
+          "price": 888.88,
+          "tags": ["Best Seller", "New"]
+        },
+        {
+          "title": "Waifu Body Pillow",
+          "url": "/products/product-1",
+          "featured_image": "/assets/waifu_body_pillow.avif",
+          "price": 888.88,
+          "tags": ["Best Seller", "New"]
+        }
+      ]
     }
   }
 }

@@ -193,3 +193,37 @@
 .fade-out-down {
   animation: fadeOutDown 0.4s ease-in forwards;
 }
+@media (max-width: 768px) {
+  #product-carousel {
+    .product-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 1rem;
+      padding-bottom: 1rem;
+
+      .product-card {
+        min-width: 65%;
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+      }
+    }
+
+    .btn-justify {
+      display: none;
+    }
+  }
+  #product-carousel .product-grid .product-card .item-card .img-card{
+    min-height: 240px !important;
+    height: 253px !important;
+  }
+}
+@media (max-width: 768px) {
+  #product-carousel .product-grid::-webkit-scrollbar {
+    display: none;
+  }
+  #product-carousel .product-grid {
+    scrollbar-width: none;
+  }
+}

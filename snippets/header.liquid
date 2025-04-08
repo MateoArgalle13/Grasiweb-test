@@ -1,11 +1,28 @@
 <header class="header">
   <div class="header__container">
+    <!-- Hamburguesa (solo mobile) -->
+    <div class="responsive-menu">
+      <div class="responsive-menu__wrapper">
+        <button class="header__mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle Menu">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="15" fill="none">
+            <path stroke="#762CFB" stroke-width="3" d="M0 1.5h36M0 13.5h36"></path>
+          </svg>
+        </button>
+        <div class="responsive-menu_content">
+          <img src="/assets/footer.svg" alt="" class="footer__logo">
+          <p class="text-center text-purple">|</p>
+          <p class="font-secondary text-[34px] font-bold">STORE</p>
+        </div>
+      </div>
+    </div>
+    
     <div class="header__left">
       {% comment %} <img class="header__logo" src="{{ settings.header.logo | img_url: 'master' }}" alt="Logo Shuffle Store" /> {% endcomment %}
       <a href="{{ settings.header.linkLogo }}" accesskey="U" title="{{ settings.header.titleLink_logo }}">
         {% render 'logo-inline' %}
       </a>
     </div>
+    <!-- Pagos (se oculta en mobile) -->
     <div class="header__center">
       <div class="module-border-wrap rounded-full">
         <div class="items-center">
@@ -19,6 +36,7 @@
       </div>
     </div>
 
+    <!-- Links + carrito (se ocultan en mobile) -->
     <div class="header__right">
       <a href="#featured-products" title="Ir a ver todos los productos" accesskey="U" class="header__link">All Products</a>
       <a href="#collections" title="Ir a ver las collections" class="header__link">Collections</a>
@@ -26,5 +44,24 @@
         <img src="/assets/cart-icon.svg" alt="Cart Icon">
       </button>
     </div>
+  </div>
+
+  <!-- Menú desplegable mobile -->
+  <div class="header__mobile-menu" id="mobile-menu">
+    <button class="header__mobile-close" id="mobile-menu-close" aria-label="Close Menu">✕</button>
+
+    <nav class="header__mobile-nav">
+      <a href="#featured-products">ALL PRODUCTS</a>
+      <a href="#collections">COLLECTIONS</a>
+
+      <div class="header__mobile-payment">
+        <p>{{ settings.header.payment_text }}</p>
+        <div class="header__mobile-icons">
+          {% for icon in settings.header.payment_icons %}
+            <img src="{{ icon.src }}" alt="{{ icon.alt }}">
+          {% endfor %}
+        </div>
+      </div>
+    </nav>
   </div>
 </header>

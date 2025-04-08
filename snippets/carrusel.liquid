@@ -3,11 +3,13 @@
 {% assign products_to_show = all_products | slice: 0, initial_count %}
 
 <section id="product-carousel" class="bg-black text-white p-6 ">
-  <div id="product-container" class="product-grid fade-in-up">
+  <div id="product-container" class="product-grid fade-in-up mobile-slider">
     {% for product in products_to_show %}
       {% render 'product-card', product: product %}
-    {% endfor %}
-    
+    {% endfor %} 
+    {% comment %} {% for product in all_products %}
+      {% render 'product-card', product: product %}
+    {% endfor %} {% endcomment %}
   </div>
   
     <div class="text-center btn-justify mt-6">
@@ -28,7 +30,18 @@
   let hasClickedViewAll = false;
   const container = document.getElementById('product-container');
   const loadMoreBtn = document.getElementById('load-more');
-
+  const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      container.innerHTML = ''; // Limpiar productos iniciales
+    
+      allProducts.forEach(product => {
+        const card = createProductCard(product);
+        container.appendChild(card);
+      });
+    
+      // Ocultamos el botón en mobile
+      if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    }
   function updateButtonText() {
     if (visibleCount > initialCount) {
       loadMoreBtn.textContent = 'VIEW LESS';
@@ -95,28 +108,31 @@
   
   
 
-  loadMoreBtn?.addEventListener('click', () => {
-    if (visibleCount >= allProducts.length) {
-      // Reset al estado inicial
-      hasClickedViewAll = false; // ⚠️ desactivamos el scroll infinito
-      resetToInitial();
-    } else {
-      hasClickedViewAll = true;  // ✅ activamos scroll infinito solo después del primer clic
-      loadMoreProducts();
-    }
-  });
-  
-
-  // Infinite Scroll (solo si no estamos en el estado "VIEW LESS")
-  window.addEventListener('scroll', () => {
-    if (!hasClickedViewAll) return; // 🚫 si nunca se hizo clic, no activa el scroll
-  
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
-      if (visibleCount < allProducts.length) {
-        loadMoreProducts(4);
+    // El código existente de loadMoreBtn y scroll infinito va aquí...
+    loadMoreBtn?.addEventListener('click', () => {
+      if (visibleCount >= allProducts.length) {
+        // Reset al estado inicial
+        hasClickedViewAll = false; // ⚠️ desactivamos el scroll infinito
+        resetToInitial();
+      } else {
+        hasClickedViewAll = true;  // ✅ activamos scroll infinito solo después del primer clic
+        loadMoreProducts();
       }
-    }
-  });
+    });
+    
+  
+    // Infinite Scroll (solo si no estamos en el estado "VIEW LESS")
+    window.addEventListener('scroll', () => {
+      if (!hasClickedViewAll) return; // 🚫 si nunca se hizo clic, no activa el scroll
+    
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+        if (visibleCount < allProducts.length) {
+          loadMoreProducts(4);
+        }
+      }
+    });
+
+  
   
 
   // Inicializa botón correctamente

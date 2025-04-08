@@ -35,6 +35,9 @@
       
       @media (max-width: 768px) {
         animation-duration: 60s;
+        .essentials-item{
+          font-size: 55px;
+        }
       }
     }
   
@@ -52,7 +55,7 @@
         margin: 0 1rem;
         
         @media (max-width: 768px) {
-          width: 1rem;
+          width: 5rem;
         }
       }
     }

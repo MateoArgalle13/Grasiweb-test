@@ -1,0 +1,140 @@
+{% assign all_products = settings.product_carousel.products %}
+{% assign initial_count = 4 %}
+{% assign products_to_show = all_products | slice: 0, initial_count %}
+
+<section id="product-carousel" class="bg-black text-white p-6 ">
+  <div id="product-container" class="product-grid fade-in-up mobile-slider">
+    {% for product in products_to_show %}
+      {% render 'product-card', product: product %}
+    {% endfor %} 
+    {% comment %} {% for product in all_products %}
+      {% render 'product-card', product: product %}
+    {% endfor %} {% endcomment %}
+  </div>
+  
+    <div class="text-center btn-justify mt-6">
+        <button id="load-more" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-xl transition">
+            VIEW ALL
+        </button>  
+    </div>
+  
+  
+</section>
+
+
+
+<script>
+  const allProducts = {{ settings.product_carousel.products | json }};
+  const initialCount = 4;
+  let visibleCount = initialCount;
+  let hasClickedViewAll = false;
+  const container = document.getElementById('product-container');
+  const loadMoreBtn = document.getElementById('load-more');
+  const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      container.innerHTML = ''; // Limpiar productos iniciales
+    
+      allProducts.forEach(product => {
+        const card = createProductCard(product);
+        container.appendChild(card);
+      });
+    
+      // Ocultamos el botón en mobile
+      if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    }
+  function updateButtonText() {
+    if (visibleCount > initialCount) {
+      loadMoreBtn.textContent = 'VIEW LESS';
+    } else {
+      loadMoreBtn.textContent = 'VIEW ALL';
+    }
+  }
+
+  function createProductCard(product) {
+    const card = document.createElement('div');
+    card.classList.add('product-card', 'dynamic-product', 'fade-in-up'); // Agrega la clase de animación
+  
+    card.innerHTML = `
+      <div class="bg-black rounded-lg overflow-hidden shadow-lg">
+        <div class="item-card">
+          <div class="img-card">
+            <img src="${product.featured_image}" alt="${product.title}" class="w-full object-cover rounded-lg" />
+          </div>    
+        </div>
+        <div class="p-4 text-center">
+          <div class="d-grid">
+            <p class="text-white text-sm font-semibold mb-2">${product.title}</p>
+            <p class="text-white text-sm mb-2">$ ${product.price} USD</p>      
+          </div>    
+          <button class="bg-purple-600 rounded-full p-2 mt-2 hover:bg-purple-700 transition">
+            <img src="/assets/cart-icon.svg" alt="Cart Icon">
+          </button>
+        </div>
+      </div>
+    `;
+    return card;
+  }
+  
+
+  function loadMoreProducts(count = 4) {
+    const remaining = allProducts.slice(visibleCount, visibleCount + count);
+    remaining.forEach(product => {
+      const card = createProductCard(product);
+      container.appendChild(card);
+    });
+    visibleCount += remaining.length;
+    updateButtonText();
+  }
+
+  function resetToInitial() {
+    const dynamicCards = container.querySelectorAll('.product-card:nth-child(n + 5)');
+  
+    dynamicCards.forEach(card => {
+      card.classList.remove('fade-in-up');
+      card.classList.add('fade-out-down');
+  
+      // Espera que termine la animación antes de eliminar
+      setTimeout(() => {
+        card.remove();
+      }, 400);
+    });
+  
+    visibleCount = initialCount;
+    updateButtonText();
+  
+    const section = document.getElementById('product-carousel');
+    window.scrollTo({ top: section.offsetTop, behavior: 'smooth' });
+  }
+  
+  
+
+    // El código existente de loadMoreBtn y scroll infinito va aquí...
+    loadMoreBtn?.addEventListener('click', () => {
+      if (visibleCount >= allProducts.length) {
+        // Reset al estado inicial
+        hasClickedViewAll = false; // ⚠️ desactivamos el scroll infinito
+        resetToInitial();
+      } else {
+        hasClickedViewAll = true;  // ✅ activamos scroll infinito solo después del primer clic
+        loadMoreProducts();
+      }
+    });
+    
+  
+    // Infinite Scroll (solo si no estamos en el estado "VIEW LESS")
+    window.addEventListener('scroll', () => {
+      if (!hasClickedViewAll) return; // 🚫 si nunca se hizo clic, no activa el scroll
+    
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100) {
+        if (visibleCount < allProducts.length) {
+          loadMoreProducts(4);
+        }
+      }
+    });
+
+  
+  
+
+  // Inicializa botón correctamente
+  updateButtonText();
+</script>

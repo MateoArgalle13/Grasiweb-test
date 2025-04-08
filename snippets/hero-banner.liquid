@@ -1,0 +1,18 @@
+<section class="hero_banner">
+  <div class="hero_banner__image">
+    <img 
+      src="{{ settings.hero_banner.image | asset_url }}" 
+      alt="{{ settings.hero_banner.alt | default: 'Banner image' }}" 
+      loading="lazy" 
+    />
+  </div>
+  <div class="hero_banner__content">
+    <a 
+      href="{{ settings.hero_banner.button_link }}" 
+      class="hero_banner__button" title="Ir a ver"
+      aria-label="{{ settings.hero_banner.button_text }}">
+      {{ settings.hero_banner.button_text }}
+    </a>
+  </div>
+</section>
+{% include 'shuffle-essentials' %}
